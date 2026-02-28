@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Dhomati Subramanyam | Digital Marketing Specialist</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #08080f;
+    --surface: #0f0f1a;
+    --card: #13131f;
+    --border: rgba(255,255,255,0.07);
+    --text: #f0eeff;
+    --muted: #8880aa;
+    --light: #c8c2e8;
+    --pink: #ff2d78;
+    --orange: #ff6b2d;
+    --cyan: #00d4ff;
+    --yellow: #ffd166;
+    --grad: linear-gradient(135deg, #ff2d78, #ff6b2d);
+    --grad2: linear-gradient(135deg, #00d4ff, #7b4fff);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--pink); border-radius: 10px; }
+
+  /* ========== NAV ========== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 64px;
+    background: rgba(8,8,15,0.88);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.04em;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 0;
+    height: 1px;
+    background: var(--grad);
+    transform: scaleX(0);
+    transition: transform 0.3s;
+    transform-origin: left;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+  .nav-links a:hover::after { transform: scaleX(1); }
+
+  .nav-cta {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.76rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 9px 22px;
+    border-radius: 100px;
+    background: var(--grad);
+    color: #fff;
+    text-decoration: none;
+    transition: opacity 0.3s, transform 0.3s;
+  }
+
+  .nav-cta:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  /* ========== HERO ========== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 64px 80px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Animated background orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.22;
+    animation: float 8s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .orb1 { width: 500px; height: 500px; background: var(--pink); top: -100px; right: -80px; animation-delay: 0s; }
+  .orb2 { width: 400px; height: 400px; background: var(--cyan); bottom: -80px; left: -60px; animation-delay: -3s; }
+  .orb3 { width: 300px; height: 300px; background: var(--orange); top: 40%; right: 20%; animation-delay: -5s; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+
+  /* Dot grid pattern */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 820px;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,45,120,0.1);
+    border: 1px solid rgba(255,45,120,0.25);
+    padding: 6px 18px;
+    border-radius: 100px;
+    margin-bottom: 32px;
+  }
+
+  .hero-eyebrow span {
+    font-size: 0.73rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--pink);
+  }
+
+  .pulse-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--pink);
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3.2rem, 7.5vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+
+  .name-grad {
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-role {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.1rem, 2.5vw, 1.7rem);
+    font-weight: 600;
+    color: var(--light);
+    margin-bottom: 28px;
+    opacity: 0.75;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 560px;
+    margin-bottom: 48px;
+    line-height: 1.75;
+  }
+
+  .hero-contacts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 52px;
+  }
+
+  .contact-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 8px 18px;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    color: var(--light);
+    text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+  }
+
+  .contact-chip:hover { border-color: var(--pink); color: var(--pink); }
+  .contact-chip .ci { font-size: 0.85rem; }
+
+  .hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+
+  .btn-glow {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s;
+  }
+
+  .btn-primary-g {
+    background: var(--grad);
+    color: #fff;
+    box-shadow: 0 4px 30px rgba(255,45,120,0.35);
+  }
+
+  .btn-primary-g:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 40px rgba(255,45,120,0.5);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid var(--border);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--pink);
+    color: var(--pink);
+  }
+
+  /* METRICS strip */
+  .metrics-strip {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 36px 64px;
+    display: flex;
+    justify-content: center;
+    gap: 0;
+  }
+
+  .metric {
+    flex: 1;
+    text-align: center;
+    padding: 0 40px;
+    position: relative;
+  }
+
+  .metric + .metric::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 10%; bottom: 10%;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .metric-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .metric-label {
+    font-size: 0.76rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ========== SECTIONS ========== */
+  .container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 64px;
+  }
+
+  .section { padding: 96px 0; }
+
+  .section-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+
+  .eyebrow-line {
+    width: 36px; height: 2px;
+    background: var(--grad);
+    border-radius: 2px;
+  }
+
+  .eyebrow-text {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 56px;
+    letter-spacing: -0.02em;
+  }
+
+  /* ========== ABOUT / OBJECTIVE ========== */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+
+  .about-text {
+    font-size: 1.08rem;
+    color: var(--light);
+    line-height: 1.8;
+    font-weight: 300;
+  }
+
+  .about-highlight {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .about-services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .service-chip {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .service-chip:hover {
+    border-color: var(--pink);
+    background: rgba(255,45,120,0.05);
+    transform: translateY(-3px);
+  }
+
+  .sc-icon { font-size: 1.5rem; margin-bottom: 10px; display: block; }
+  .sc-name { font-family: 'Syne', sans-serif; font-size: 0.85rem; font-weight: 700; color: var(--text); }
+  .sc-desc { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+
+  /* ========== EXPERIENCE ========== */
+  .exp-grid { display: flex; flex-direction: column; gap: 28px; }
+
+  .exp-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 44px 48px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.35s, transform 0.35s, box-shadow 0.35s;
+  }
+
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--grad);
+    opacity: 0;
+    transition: opacity 0.35s;
+    border-radius: 20px;
+    z-index: 0;
+  }
+
+  .exp-card:hover { border-color: rgba(255,45,120,0.4); transform: translateY(-5px); box-shadow: 0 20px 60px rgba(255,45,120,0.12); }
+
+  .exp-card > * { position: relative; z-index: 1; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .exp-company-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+
+  .exp-title {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .exp-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .badge {
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .badge-pink {
+    background: rgba(255,45,120,0.15);
+    color: var(--pink);
+    border: 1px solid rgba(255,45,120,0.3);
+  }
+
+  .badge-cyan {
+    background: rgba(0,212,255,0.1);
+    color: var(--cyan);
+    border: 1px solid rgba(0,212,255,0.25);
+  }
+
+  .exp-sub-roles {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+  }
+
+  .sub-role {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.78rem;
+    color: var(--light);
+  }
+
+  .exp-achievements {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 28px;
+  }
+
+  .ach-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.86rem;
+    color: var(--muted);
+    line-height: 1.5;
+    padding: 4px 0;
+  }
+
+  .ach-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--grad);
+    flex-shrink: 0;
+    margin-top: 7px;
+    background: linear-gradient(135deg, var(--pink), var(--orange));
+  }
+
+  /* ========== SKILLS ========== */
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .skill-block {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 32px;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-block::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .skill-block:hover { border-color: rgba(255,45,120,0.3); transform: translateY(-4px); }
+  .skill-block:hover::after { opacity: 1; }
+
+  .skill-block-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: rgba(255,45,120,0.1);
+    border: 1px solid rgba(255,45,120,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 18px;
+  }
+
+  .skill-block h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .skill-pill {
+    font-size: 0.73rem;
+    padding: 4px 12px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid var(--border);
+    color: var(--light);
+    font-weight: 500;
+    transition: all 0.25s;
+    cursor: default;
+  }
+
+  .skill-pill:hover {
+    background: rgba(255,45,120,0.1);
+    border-color: rgba(255,45,120,0.3);
+    color: var(--pink);
+  }
+
+  /* ========== EDUCATION ========== */
+  .edu-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+    padding-left: 32px;
+  }
+
+  .edu-timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--pink), var(--cyan), transparent);
+  }
+
+  .edu-node {
+    position: relative;
+    padding: 0 0 48px 40px;
+  }
+
+  .edu-node:last-child { padding-bottom: 0; }
+
+  .edu-dot {
+    position: absolute;
+    left: -7px; top: 6px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--grad);
+    box-shadow: 0 0 16px rgba(255,45,120,0.5);
+    border: 2px solid var(--bg);
+  }
+
+  .edu-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    transition: all 0.3s;
+  }
+
+  .edu-card:hover { border-color: rgba(255,45,120,0.3); transform: translateX(6px); }
+
+  .edu-year {
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+
+  .edu-card h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .edu-school {
+    font-size: 0.83rem;
+    color: var(--muted);
+  }
+
+  .edu-score-badge {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 800;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    white-space: nowrap;
+  }
+
+  /* ========== LANGUAGES ========== */
+  .lang-grid { display: flex; gap: 20px; flex-wrap: wrap; }
+
+  .lang-block {
+    flex: 1;
+    min-width: 180px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 36px 28px;
+    text-align: center;
+    transition: all 0.35s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lang-block::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--grad);
+    transform: scaleX(0);
+    transition: transform 0.35s;
+    transform-origin: left;
+  }
+
+  .lang-block:hover { border-color: rgba(255,45,120,0.3); transform: translateY(-6px); box-shadow: 0 16px 50px rgba(255,45,120,0.1); }
+  .lang-block:hover::before { transform: scaleX(1); }
+
+  .lang-emoji { font-size: 2.2rem; margin-bottom: 14px; display: block; }
+  .lang-name { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--text); }
+  .lang-level { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-top: 4px; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 52px 64px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-brand {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .footer-copy {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+  }
+
+  .footer-contact a {
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-contact a:hover { color: var(--pink); }
+
+  /* ========== ANIMATIONS ========== */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ========== DIVIDER ========== */
+  .grad-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--pink), var(--cyan), transparent);
+    opacity: 0.2;
+  }
+
+  /* ========== RESPONSIVE ========== */
+  @media (max-width: 860px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 24px 60px; }
+    .container { padding: 0 24px; }
+    .about-grid { grid-template-columns: 1fr; }
+    .skills-container { grid-template-columns: 1fr 1fr; }
+    .exp-achievements { grid-template-columns: 1fr; }
+    footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
+    .footer-contact { align-items: flex-start; }
+    .metrics-strip { padding: 28px 24px; gap: 0; flex-wrap: wrap; }
+    .metric { padding: 16px; min-width: 50%; }
+  }
+
+  @media (max-width: 560px) {
+    .skills-container { grid-template-columns: 1fr; }
+    h1 { font-size: 2.8rem; }
+    .exp-card { padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">DS · Digital</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="mailto:dhomatirocky2001@gmail.com" class="nav-cta">Hire Me</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <div class="pulse-dot"></div>
+      <span>Available for Digital Marketing Roles</span>
+    </div>
+    <h1><span class="name-grad">Dhomati</span><br>Subramanyam</h1>
+    <p class="hero-role">Digital Marketing Specialist · Customer Growth Expert</p>
+    <p class="hero-desc">
+      Results-driven professional with <strong>29+ months</strong> of real-world customer engagement experience. Passionate about driving brand growth, customer retention, and data-driven marketing strategies that convert and scale.
+    </p>
+    <div class="hero-contacts">
+      <a href="tel:9063998409" class="contact-chip"><span class="ci">📞</span> 9063998409</a>
+      <a href="mailto:dhomatirocky2001@gmail.com" class="contact-chip"><span class="ci">✉️</span> dhomatirocky2001@gmail.com</a>
+      <span class="contact-chip"><span class="ci">📍</span> Hyderabad, Telangana</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#experience" class="btn-glow btn-primary-g">View My Work</a>
+      <a href="mailto:dhomatirocky2001@gmail.com" class="btn-glow btn-ghost">Get In Touch</a>
+    </div>
+  </div>
+</div>
+
+<!-- METRICS -->
+<div class="metrics-strip">
+  <div class="metric reveal">
+    <div class="metric-num">29+</div>
+    <div class="metric-label">Months of Experience</div>
+  </div>
+  <div class="metric reveal">
+    <div class="metric-num">95%+</div>
+    <div class="metric-label">Customer Satisfaction</div>
+  </div>
+  <div class="metric reveal">
+    <div class="metric-num">2</div>
+    <div class="metric-label">Global Brands Served</div>
+  </div>
+  <div class="metric reveal">
+    <div class="metric-num">3</div>
+    <div class="metric-label">Languages Spoken</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="container">
+  <div class="section" id="about">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">About Me</span>
+    </div>
+    <h2>Turning Conversations<br>Into Conversions</h2>
+    <div class="about-grid">
+      <div>
+        <p class="about-text reveal">
+          I'm a <span class="about-highlight">customer-centric professional</span> with hands-on experience managing multi-channel communications — chat, email, and voice — for globally recognized brands like DoorDash, Lumen, and Airtel Broadband.
+          <br/><br/>
+          My background in <span class="about-highlight">billing support, dispute resolution, and customer lifecycle management</span> gives me a unique edge in digital marketing: I understand what customers actually want, not just what the data says. I combine analytical thinking with empathetic communication to craft strategies that drive real results.
+          <br/><br/>
+          Skilled in <span class="about-highlight">Power BI, Excel dashboards, and data visualization</span>, I bring a performance-oriented mindset to every campaign and customer touchpoint.
+        </p>
+      </div>
+      <div class="about-services">
+        <div class="service-chip reveal">
+          <span class="sc-icon">📊</span>
+          <div class="sc-name">Data Analytics</div>
+          <div class="sc-desc">Power BI · Excel · Pivot Tables</div>
+        </div>
+        <div class="service-chip reveal">
+          <span class="sc-icon">💬</span>
+          <div class="sc-name">Customer Engagement</div>
+          <div class="sc-desc">Chat · Email · Voice CRM</div>
+        </div>
+        <div class="service-chip reveal">
+          <span class="sc-icon">🎯</span>
+          <div class="sc-name">Campaign Strategy</div>
+          <div class="sc-desc">Targeting · Retention · Growth</div>
+        </div>
+        <div class="service-chip reveal">
+          <span class="sc-icon">📣</span>
+          <div class="sc-name">Brand Communication</div>
+          <div class="sc-desc">Messaging · Tone · Outreach</div>
+        </div>
+        <div class="service-chip reveal">
+          <span class="sc-icon">🔍</span>
+          <div class="sc-name">Market Research</div>
+          <div class="sc-desc">Consumer Insights · Trends</div>
+        </div>
+        <div class="service-chip reveal">
+          <span class="sc-icon">📈</span>
+          <div class="sc-name">Performance Reporting</div>
+          <div class="sc-desc">KPIs · Dashboards · Reports</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="grad-divider"></div>
+
+<!-- EXPERIENCE -->
+<div class="container">
+  <div class="section" id="experience">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Experience</span>
+    </div>
+    <h2>Brands I've<br>Powered Growth For</h2>
+    <div class="exp-grid">
+
+      <!-- VXI -->
+      <div class="exp-card reveal">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company-name">VXI Global Solutions</div>
+            <div class="exp-title">Account Associate · Customer Operations</div>
+          </div>
+          <div class="exp-badge">
+            <span class="badge badge-pink">13 Months</span>
+          </div>
+        </div>
+        <div class="exp-sub-roles">
+          <span class="sub-role">🚗 DoorDash — Chat Process (8 months)</span>
+          <span class="sub-role">📡 Lumen — Voice Process (5 months)</span>
+        </div>
+        <div class="exp-achievements">
+          <div class="ach-item"><div class="ach-dot"></div><span>Managed end-to-end customer refund lifecycle across multiple platforms, ensuring full regulatory compliance</span></div>
+          <div class="ach-item"><div class="ach-dot"></div><span>Achieved 95%+ customer satisfaction score through empathetic, solution-first communication</span></div>
+          <div class="ach-item"><div class="ach-dot"></div><span>Resolved billing disputes and chargeback claims via cross-functional team collaboration</span></div>
+          <div class="ach-item"><div class="ach-dot"></div><span>Documented refund approvals and denials, improving data traceability and transparency</span></div>
+          <div class="ach-item"><div class="ach-dot"></div><span>Handled high-volume chat & email interactions with precision and speed</span></div>
+          <div class="ach-item"><div class="ach-dot"></div><span>Escalated complex cases for timely supervisor review — reducing resolution time</span></div>
+        </div>
+      </div>
+
+      <!-- Q-Conneqt -->
+      <div class="exp-card reveal">
+        <div class="exp-header">
+          <div>
+            <div class="exp-company-name">Q-Conneqt</div>
+            <div class="exp-title">Account Associate · Voice Process</div>
+          </div>
+          <div class="exp-badge">
+            <span class="badge badge-cyan">16 Months</span>
+          </div>
+        </div>
+        <div class="exp-sub-roles">
+          <span class="sub-role">📶 Airtel Broadband — Voice Process</span>
+        </div>
+        <div class="exp-achievements">
+          <div class="ach-item"><div class="ach-dot"></div><span>Managed inbound voice interactions for Airtel Broadband's customer base</span></div>
+          <div class="ach-item"><div class="ach-dot"></div><span>Resolved connectivity and billing queries with clear, empathetic brand communication</span></div>
+          <div class="ach-item"><div class="ach-dot"></div><span>Maintained accurate records and proactively escalated service issues</span></div>
+          <div class="ach-item"><div class="ach-dot"></div><span>Delivered consistent support quality aligned with brand service standards</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="grad-divider"></div>
+
+<!-- SKILLS -->
+<div class="container">
+  <div class="section" id="skills">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Skills & Tools</span>
+    </div>
+    <h2>What I Bring<br>to the Table</h2>
+    <div class="skills-container">
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">📊</div>
+        <h3>Analytics & Reporting</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Power BI</span>
+          <span class="skill-pill">Dashboard Creation</span>
+          <span class="skill-pill">Data Visualization</span>
+          <span class="skill-pill">Microsoft Excel</span>
+          <span class="skill-pill">Pivot Tables</span>
+          <span class="skill-pill">VLOOKUP / HLOOKUP</span>
+        </div>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">🎯</div>
+        <h3>Marketing Skills</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Campaign Strategy</span>
+          <span class="skill-pill">Customer Retention</span>
+          <span class="skill-pill">Brand Communication</span>
+          <span class="skill-pill">Market Research</span>
+          <span class="skill-pill">Consumer Insights</span>
+        </div>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">💬</div>
+        <h3>Customer Engagement</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Chat Process</span>
+          <span class="skill-pill">Email Support</span>
+          <span class="skill-pill">Voice Process</span>
+          <span class="skill-pill">CRM Management</span>
+          <span class="skill-pill">Customer Lifecycle</span>
+        </div>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">🔧</div>
+        <h3>Operations & Support</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Refund & Billing</span>
+          <span class="skill-pill">Dispute Resolution</span>
+          <span class="skill-pill">Chargeback Handling</span>
+          <span class="skill-pill">Financial Compliance</span>
+          <span class="skill-pill">Escalation Management</span>
+        </div>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">🧠</div>
+        <h3>Core Strengths</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Analytical Thinking</span>
+          <span class="skill-pill">Problem Solving</span>
+          <span class="skill-pill">Attention to Detail</span>
+          <span class="skill-pill">Time Management</span>
+          <span class="skill-pill">Team Collaboration</span>
+        </div>
+      </div>
+
+      <div class="skill-block reveal">
+        <div class="skill-block-icon">🌐</div>
+        <h3>Communication</h3>
+        <div class="skill-pills">
+          <span class="skill-pill">Telugu (Native)</span>
+          <span class="skill-pill">Hindi (Fluent)</span>
+          <span class="skill-pill">English (Professional)</span>
+          <span class="skill-pill">Multilingual Outreach</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="grad-divider"></div>
+
+<!-- EDUCATION -->
+<div class="container">
+  <div class="section" id="education">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Education</span>
+    </div>
+    <h2>Academic<br>Foundation</h2>
+    <div class="edu-timeline">
+
+      <div class="edu-node reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-card">
+          <div>
+            <div class="edu-year">2019 – 2022</div>
+            <h3>BSc — Mathematics, Computer Science & Statistics</h3>
+            <p class="edu-school">Siddhartha Degree College</p>
+          </div>
+          <div class="edu-score-badge">Graduated</div>
+        </div>
+      </div>
+
+      <div class="edu-node reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-card">
+          <div>
+            <div class="edu-year">2017 – 2019</div>
+            <h3>Intermediate — MPC</h3>
+            <p class="edu-school">Sri Chaitanya Junior College</p>
+          </div>
+          <div class="edu-score-badge">70%</div>
+        </div>
+      </div>
+
+      <div class="edu-node reveal">
+        <div class="edu-dot"></div>
+        <div class="edu-card">
+          <div>
+            <div class="edu-year">2016 – 2017</div>
+            <h3>SSC — Secondary School Certificate</h3>
+            <p class="edu-school">Littel Scholars Talent School</p>
+          </div>
+          <div class="edu-score-badge">8.5 GPA</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="grad-divider"></div>
+
+<!-- LANGUAGES -->
+<div class="container">
+  <div class="section">
+    <div class="section-eyebrow">
+      <div class="eyebrow-line"></div>
+      <span class="eyebrow-text">Languages</span>
+    </div>
+    <h2>Reaching Audiences<br>Across Cultures</h2>
+    <div class="lang-grid">
+      <div class="lang-block reveal">
+        <span class="lang-emoji">🇮🇳</span>
+        <div class="lang-name">Telugu</div>
+        <div class="lang-level">Native</div>
+      </div>
+      <div class="lang-block reveal">
+        <span class="lang-emoji">🇮🇳</span>
+        <div class="lang-name">Hindi</div>
+        <div class="lang-level">Fluent</div>
+      </div>
+      <div class="lang-block reveal">
+        <span class="lang-emoji">🇬🇧</span>
+        <div class="lang-name">English</div>
+        <div class="lang-level">Professional</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div>
+    <div class="footer-brand">Dhomati Subramanyam</div>
+    <div class="footer-copy">© 2025 · Digital Marketing Specialist · Hyderabad, Telangana</div>
+  </div>
+  <div class="footer-contact">
+    <a href="tel:9063998409">📞 9063998409</a>
+    <a href="mailto:dhomatirocky2001@gmail.com">✉️ dhomatirocky2001@gmail.com</a>
+    <a href="#">📍 Quthbullapur, Hyderabad — 500054</a>
+  </div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    const siblings = el.parentElement.querySelectorAll('.reveal');
+    const idx = Array.from(siblings).indexOf(el);
+    el.style.transitionDelay = (idx % 4) * 0.1 + 's';
+    observer.observe(el);
+  });
+
+  // Active nav highlight
+  const sections = document.querySelectorAll('[id]');
+  const navAs = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sections.forEach(s => { if (scrollY >= s.offsetTop - 180) cur = s.id; });
+    navAs.forEach(a => {
+      const isActive = a.getAttribute('href') === '#' + cur;
+      a.style.color = isActive ? '#ff2d78' : '';
+    });
+  });
+</script>
+</body>
+</html>
